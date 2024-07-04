@@ -8,6 +8,7 @@ export function up(knex) {
         table.string("opening_date").notNullable();
         table.string("closing_date").notNullable();
         table.string('show_image').notNullable();
+        table.text('description');
         table.timestamp("created_at").defaultTo(knex.fn.now());
         table
             .timestamp("updated_at")

@@ -11,6 +11,8 @@ export function up(knex) {
         table.string("username").notNullable();
         table.string("password").notNullable();
         table.string("phone").notNullable();
+        table.string("avatar").notNullable();
+        table.string("fave_artist");
         table.timestamp("created_at").defaultTo(knex.fn.now());
         table
             .timestamp("updated_at")

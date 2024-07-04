@@ -4,6 +4,7 @@ const knex = initKnex(configuration);
 
 const getExhibitions = async (req, res) => {
     try {
+
         const exhibitions = await knex('exhibitions')
             .join('artists_exhibitions', 'artists_exhibitions.show_id', '=', 'exhibitions.show_id')
             .join('artists', 'artists.id', '=', 'artists_exhibitions.artist_id')
