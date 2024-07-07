@@ -2,17 +2,13 @@ import initKnex from "knex";
 import configuration from "../knexfile.js";
 const knex = initKnex(configuration);
 
-const getReviewsByExhibition = async (req, res) => {
-
-    const { exhibitionId } = req.params;
+const getReviews = async (req, res) => {
 
     try {
-        if (!exhibitionId) {
-            return res.status(400).json({ error: "Exhibition ID is required" });
-        }
 
-        const reviewsByExhibition = await knex('reviews')
+        const reviews = await knex('reviews')
             .join('users', 'users.user_id', '=', 'reviews.user_id')
+            .join('exhibitions', 'exhibitions.show_id', '=', 'reviews.show_id')
             .select(
                 'reviews.id as id',
                 'reviews.show_id as show_id',
@@ -22,11 +18,13 @@ const getReviewsByExhibition = async (req, res) => {
                 'users.username as username',
                 'reviews.review as review',
                 'reviews.seen as seen',
-                'reviews.created_at as created_at'
+                'reviews.created_at as created_at',
+                'exhibitions.show_image as show_image',
+                'exhibitions.title as title',
+                'exhibitions.location as location',
             )
-            .where({ 'reviews.show_id': exhibitionId });
 
-        res.status(200).json(reviewsByExhibition);
+        res.status(200).json(reviews);
     } catch {
         res.status(400).json({
             message: 'Error getting reviews'
@@ -34,4 +32,4 @@ const getReviewsByExhibition = async (req, res) => {
     }
 }
 
-export default getReviewsByExhibition
+export default getReviews

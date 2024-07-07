@@ -31,7 +31,8 @@ export async function seed(knex) {
             name: `bella`,
             phone: `+1(415)4908291`,
             avatar: `bella.jpg`,
-            fave_artist: `Anicka Yi`
+            fave_artist: `Anicka Yi`,
+            bio: `The most useful thing i learned in art school was how to hate things`
         },
         {
             user_id: 4,
