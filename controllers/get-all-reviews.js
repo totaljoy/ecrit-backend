@@ -22,6 +22,7 @@ const getReviews = async (req, res) => {
                 'exhibitions.show_image as show_image',
                 'exhibitions.title as title',
                 'exhibitions.location as location',
+                'reviews.date as date'
             )
 
         res.status(200).json(reviews);

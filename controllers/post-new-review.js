@@ -12,7 +12,6 @@ const postNewReview = async (req, res) => {
 
     try {
         const result = await knex('reviews').insert(req.body)
-        console.log(result)
 
         const newReviewId = result[0]
         const createdReview = await knex("reviews").where({ id: newReviewId});

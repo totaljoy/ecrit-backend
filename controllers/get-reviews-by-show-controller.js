@@ -22,7 +22,8 @@ const getReviewsByExhibition = async (req, res) => {
                 'users.username as username',
                 'reviews.review as review',
                 'reviews.seen as seen',
-                'reviews.created_at as created_at'
+                'reviews.created_at as created_at',
+                'reviews.date as date'
             )
             .where({ 'reviews.show_id': exhibitionId });
 

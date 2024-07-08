@@ -16,6 +16,7 @@ export function up(knex)  {
             .notNullable()
         table.boolean('seen').notNullable()
         table.text('review')
+        table.timestamp('date').notNullable()
         table.timestamp("created_at").defaultTo(knex.fn.now());
         table
             .timestamp("updated_at")
