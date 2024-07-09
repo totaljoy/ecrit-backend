@@ -1,37 +1,38 @@
-// import initKnex from "knex";
-// import configuration from "../knexfile.js";
-// const knex = initKnex(configuration);
+import initKnex from "knex";
+import configuration from "../knexfile.js";
+const knex = initKnex(configuration);
 
-// const getReviewsByUser = async (req, res) => {
+const getReviewsByUser = async (req, res) => {
 
-//     const { userId } = req.params;
+    const { userId } = req.params;
 
-//     try {
-//         if (!exhibitionId) {
-//             return res.status(400).json({ error: "Exhibition ID is required" });
-//         }
+    try {
+        if (!userId) {
+            return res.status(400).json({ error: "User ID is required" });
+        }
 
-//         const reviewsByExhibition = await knex('reviews')
-//             .join('users', 'users.user_id', '=', 'reviews.user_id')
-//             .select(
-//                 'reviews.id as id',
-//                 'reviews.show_id as show_id',
-//                 'users.user_id as user_id',
-//                 'users.name as name',
-//                 'users.avatar as avatar',
-//                 'users.username as username',
-//                 'reviews.review as review',
-//                 'reviews.seen as seen',
-//                 'reviews.created_at as created_at'
-//             )
-//             .where({ 'reviews.show_id': exhibitionId });
+        const reviewsByUser = await knex('reviews')
+            .join('users', 'users.user_id', '=', 'reviews.user_id')
+            .select(
+                'reviews.id as id',
+                'reviews.show_id as show_id',
+                'users.user_id as user_id',
+                'users.name as name',
+                'users.avatar as avatar',
+                'users.username as username',
+                'reviews.review as review',
+                'reviews.seen as seen',
+                'reviews.created_at as created_at',
+                'reviews.date as date'
+            )
+            .where({ 'reviews.user_id': userId });
 
-//         res.status(200).json(reviewsByExhibition);
-//     } catch {
-//         res.status(400).json({
-//             message: 'Error getting reviews'
-//         });
-//     }
-// }
+        res.status(200).json(reviewsByUser);
+    } catch {
+        res.status(400).json({
+            message: 'Error getting reviews'
+        });
+    }
+}
 
-// export default getReviewsByExhibition
+export default getReviewsByUser
