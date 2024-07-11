@@ -23,7 +23,8 @@ const getReviewsByUser = async (req, res) => {
                 'reviews.review as review',
                 'reviews.seen as seen',
                 'reviews.created_at as created_at',
-                'reviews.date as date'
+                'reviews.date as date',
+                'reviews.starred as starred'
             )
             .where({ 'reviews.user_id': userId });
 

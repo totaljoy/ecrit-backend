@@ -2,7 +2,6 @@
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
-
 export async function seed(knex) {
     await knex('reviews').del();
     await knex('reviews').insert([
@@ -14,14 +13,16 @@ export async function seed(knex) {
 
 The LED display is pure magic – it snakes up all six ramps with Holzer's razor-sharp one-liners from "Truisms" and "Inflammatory Essays." It's Holzer doing what she does best: making you read, think, and question all at once.`,
             seen: true,
-            date: `2024-07-04 20:43:50`
+            date: `2024-07-04 20:43:50`,
+            starred: false
         },
         {
             id: 2,
             user_id: 2,
             show_id: 4,
             seen: true,
-            date: `2024-07-03 18:43:50`
+            date: `2024-07-03 18:43:50`,
+            starred: false
         },
         {
             id: 3,
@@ -31,7 +32,8 @@ The LED display is pure magic – it snakes up all six ramps with Holzer's razor
             
                     anyway, aside from charles ray, buck ellison's staged imitations of important moments in erik prince's life and michael e. smith's hanging bottles with motors were pretty good. nothing else did much for me.`,
             seen: true,
-            date: `2024-07-02 20:43:50`
+            date: `2024-07-02 20:43:50`,
+            starred: false
         },
         {
             id: 4,
@@ -41,21 +43,24 @@ The LED display is pure magic – it snakes up all six ramps with Holzer's razor
 
 the whole exhibition is a meditation on memory, inheritance, and black life in america. ojini takes these pianos - symbols of sophistication and aspiration - and transforms them into something entirely new. it's a clever commentary on shifting values and cultural significance.`,
             seen: true,
-            date: `2024-07-01 20:43:50`
+            date: `2024-07-01 20:43:50`,
+            starred: false
         },
         {
             id: 5,
             user_id: 1,
             show_id: 9,
             seen: true,
-            date: `2024-07-03 15:43:50`
+            date: `2024-07-03 15:43:50`,
+            starred: false
         },
         {
             id: 6,
             user_id: 4,
             show_id: 11,
             seen: true,
-            date: `2024-07-03 15:43:50`
+            date: `2024-07-03 15:43:50`,
+            starred: false
         },
         {
             id: 7,
@@ -63,24 +68,35 @@ the whole exhibition is a meditation on memory, inheritance, and black life in a
             show_id: 7,
             seen: true,
             review: `so fucking happy for ben. he's the goat. to an american audience, an image of a gun can feel as dangerous as the gun itself. the guns in the show are not real, and neither is the conflict. they are representations themselves, airsoft replicas, which fire plastic bbs out of orange tipped muzzles during a simulated military operation known as milsim.`,
-            date: `2024-07-05 15:43:50`
+            date: `2024-07-05 15:43:50`,
+            starred: false
         },
         {
             id: 8,
             user_id: 3,
             show_id: 8,
             seen: true,
-            date: `2024-07-06 15:43:50`
+            date: `2024-07-06 15:43:50`,
+            starred: false
         },
         {
             id: 9,
             user_id: 1,
             show_id: 8,
             seen: true,
-            date: `2024-07-06 15:43:50`
+            date: `2024-07-06 15:43:50`,
+            starred: false
         },
         {
             id: 10,
+            user_id: 2,
+            show_id: 9,
+            seen: false,
+            date: `2024-07-06 15:43:50`,
+            starred: true
+        },
+        {
+            id: 11,
             user_id: 3,
             show_id: 11,
             seen: true,
@@ -88,14 +104,24 @@ the whole exhibition is a meditation on memory, inheritance, and black life in a
             she's taking on these famous male artists, using their styles but making them her own. it's like she's saying, "hey, i can do this too, and i'll do it my way."
             emin's not buying into the whole "women are just models" thing. she's both the artist and the model, challenging that typical male gaze. it's pretty empowering.
             this piece is a big deal, leading to her other famous works like "my bed." emin's all about putting her real emotions and experiences out there, and it's really relatable.`,
-            date: `2024-07-06 15:43:50`
+            date: `2024-07-06 15:43:50`,
+            starred: false
         },
         {
-            id: 11,
+            id: 12,
             user_id: 2,
             show_id: 10,
             seen: true,
-            date: `2024-07-07 15:43:50`
+            date: `2024-07-07 15:43:50`,
+            starred: false
+        },
+        {
+            id: 13,
+            user_id: 1,
+            show_id: 10,
+            seen: false,
+            starred: true,
+            date: `2024-09-07 15:43:50`,
         }
-    ])
+    ]);
 }

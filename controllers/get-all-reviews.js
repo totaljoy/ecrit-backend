@@ -22,11 +22,13 @@ const getReviews = async (req, res) => {
                 'exhibitions.show_image as show_image',
                 'exhibitions.title as title',
                 'exhibitions.location as location',
-                'reviews.date as date'
+                'reviews.date as date',
+                'reviews.starred as starred'
             )
 
         res.status(200).json(reviews);
-    } catch {
+    } catch (e){
+        console.log(e)
         res.status(400).json({
             message: 'Error getting reviews'
         });

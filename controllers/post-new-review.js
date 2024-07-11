@@ -4,7 +4,7 @@ const knex = initKnex(configuration);
 
 const postNewReview = async (req, res) => {
 
-    if (!req.body.user_id || !req.body.show_id || !req.body.seen) {
+    if (!req.body.user_id || !req.body.show_id) {
         return res.status(400).json({
             message: "Please provide all fields for the review in the request",
             });
