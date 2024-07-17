@@ -18,7 +18,7 @@ export function up(knex)  {
         table.text('review')
         table.boolean('starred')
         table.timestamp('date')
-        table.unique(['show_id', 'user_id'], 'unique_review_id')
+        table.unique(['show_id', 'user_id', 'starred'], 'unique_review_id')
         table.timestamp("created_at").defaultTo(knex.fn.now());
         table
             .timestamp("updated_at")

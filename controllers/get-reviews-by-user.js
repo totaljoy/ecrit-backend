@@ -13,9 +13,11 @@ const getReviewsByUser = async (req, res) => {
 
         const reviewsByUser = await knex('reviews')
             .join('users', 'users.user_id', '=', 'reviews.user_id')
+            .join('exhibitions', 'exhibitions.show_id', '=', 'reviews.show_id')
             .select(
                 'reviews.id as id',
                 'reviews.show_id as show_id',
+                'exhibitions.title as title',
                 'users.user_id as user_id',
                 'users.name as name',
                 'users.avatar as avatar',

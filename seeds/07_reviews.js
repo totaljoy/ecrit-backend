@@ -114,14 +114,6 @@ the whole exhibition is a meditation on memory, inheritance, and black life in a
             seen: true,
             date: `2024-07-07 15:43:50`,
             starred: false
-        },
-        {
-            id: 13,
-            user_id: 1,
-            show_id: 10,
-            seen: false,
-            starred: true,
-            date: `2024-09-07 15:43:50`,
         }
     ]);
 }
